@@ -2,45 +2,100 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Nadaj Przesyłkę, PESEL: 000000000000 (Your Name)"
-        Height="450" Width="400">
+        Height="230" Width="400">
     <Grid>
+
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="181*" />
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="33*" />
         </Grid.RowDefinitions>
 
-        <GroupBox Header="Rodzaj przesyłki" Margin="10">
-            <StackPanel>
-                <RadioButton Name="PocztowkaRadioButton" Content="Pocztówka" IsChecked="True"/>
-                <RadioButton Name="ListRadioButton" Content="List"/>
-                <RadioButton Name="PaczkaRadioButton" Content="Paczka"/>
-            </StackPanel>
-        </GroupBox>
 
-        <GroupBox Header="Dane adresowe" Margin="10" Grid.Row="1">
-            <StackPanel>
-                <TextBlock>Ulica z numerem</TextBlock>
-                <TextBox Name="UlicaTextBox"/>
-                <TextBlock>Kod pocztowy</TextBlock>
-                <TextBox Name="KodTextBox"/>
-                <TextBlock>Miasto</TextBlock>
-                <TextBox Name="MiastoTextBox"/>
-            </StackPanel>
-        </GroupBox>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-        <Button Name="CheckButton" Content="Sprawdź Cenę" Margin="10" Grid.Row="2" 
-                HorizontalAlignment="Left" Width="100" Height="50" 
-                VerticalAlignment="Top" Click="CheckButton_Click"/>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110*" />
+                <RowDefinition Height="71*" />
+            </Grid.RowDefinitions>
 
-        <StackPanel Margin="10" Grid.Row="3">
-            <Image Name="ImageViewer" Height="100"/>
-            <TextBlock Name="CenaTextBlock" Text="Cena: " FontWeight="Bold" FontSize="16"/>
-        </StackPanel>
+            <Border Grid.Row="0" BorderBrush="Black" BorderThickness="1">
+                <GroupBox Header="Rodzaj przesyłki" Margin="10,10,10,10">
+                    <StackPanel>
+                        <RadioButton Name="PocztowkaRadioButton" Content="Pocztówka" IsChecked="True"/>
+                        <RadioButton Name="ListRadioButton" Content="List"/>
+                        <RadioButton Name="PaczkaRadioButton" Content="Paczka"/>
 
-        <Button Name="ConfirmButton" Content="Zatwierdź" Margin="10" Grid.Row="3"
-                Click="ConfirmButton_Click" Width="100" Height="50" 
-                VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </GroupBox>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="0" Grid.Row="1">
+                <StackPanel Margin="10,10,10,10" Grid.Row="1">
+                    <Image Name="ImageViewer" Height="1" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Button Name="CheckButton" Content="Sprawdź Cenę" Margin="0" Grid.Row="1" 
+                         Height="18" Width="150" FontSize="10"
+                        Click="CheckButton_Click"/>
+                    <TextBlock x:Name="CenaTextBlock" Text="Cena: " FontSize="13" Width="60" HorizontalAlignment="Right"/>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+
+
+        <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+            <GroupBox Header="Dane adresowe" Margin="10,10,10,10" Grid.Column="1">
+                <StackPanel>
+                    <TextBlock>Ulica z numerem</TextBlock>
+                    <TextBox Name="UlicaTextBox"/>
+                    <TextBlock>Kod pocztowy</TextBlock>
+                    <TextBox Name="KodTextBox"/>
+                    <TextBlock>Miasto</TextBlock>
+                    <TextBox Name="MiastoTextBox"/>
+                </StackPanel>
+            </GroupBox>
+        </Border>
+
+        <Border Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="0,3,0,0" Grid.Row="2">
+            <Button Name="ConfirmButton" Content="Zatwierdź" Margin="0" Grid.Row="1"
+                Click="ConfirmButton_Click" Width="400" Height="20" 
+                VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        </Border>
+
+
+
+
+
+
+
+
+
+        <!--
+
+
+
+
+
+
+
+
+
+
+
+
+        -->
     </Grid>
 </Window>
